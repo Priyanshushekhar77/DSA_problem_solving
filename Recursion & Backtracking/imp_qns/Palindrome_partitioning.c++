@@ -1,5 +1,7 @@
 // link->https://leetcode.com/problems/palindrome-partitioning/description/
 
+// Input: s = "aab"
+// Output: [["a","a","b"],["aa","b"]]
 #include <iostream>
 #include <vector>
 #include <string>
