@@ -28,7 +28,7 @@ bool subsetSumUtil(int ind, int target, vector<int> &arr, vector<vector<int>> &d
 {
     // Base case: If the target sum is 0, return true
     if (target == 0)
-        return dp[ind][target] = true;
+        return dp[ind][0] = true;
 
     // Base case: If we have considered all elements and the target is still not 0, return false
     if (ind == 0)

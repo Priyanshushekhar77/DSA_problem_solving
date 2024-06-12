@@ -1,5 +1,5 @@
 // dealing with only positive and zeroes
-// bruteforce
+// bruteforce T.C=> O(N(pow(2)))
 
 // #include <bits/stdc++.h>
 // using namespace std;
