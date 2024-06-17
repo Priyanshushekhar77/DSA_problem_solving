@@ -119,7 +119,7 @@ int longestIncreasingSubsequence(int arr[], int n)
     return dp[0][0];
 }
 
-/* Tabulation algorithm to find the length of the longest increasing subsequence.
+/* Tabulation algorithm to find the length of the longest increasing subsequence.(follow this)
 
 1. Run an outer loop running from 0 to n-1. Every outer loop iteration will find the dp[i] value.
 2. Nest another loop inside it. For particular index i, this inner loop will help us to find the maximum value of dp[prev_index].

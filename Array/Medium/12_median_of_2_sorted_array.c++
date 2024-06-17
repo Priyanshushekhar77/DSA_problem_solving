@@ -23,7 +23,7 @@ Bruteforce->
 2.sort them
 3.if size is odd return temp[size/2] else its even then return (temp[size/2 -1] + temp[size/2]) /2;
 
-step 1 and 2 time comp can reduced if we apply merge method
+step 1 and 2 time comp can reduced if we apply merge method other applying than sort
 while(i<m && j<n){
     if(nums[i]<nums[j]) temp.push_back(nums[i]) i++;
     else temp.push_back(nums[j]) j++;
@@ -42,8 +42,8 @@ public:
         int k = 0;
         int m = arr1.size();
         int n = arr2.size();
-        int a = (m + n) / 2;
-        int b = a - 1;
+        int a = (m + n) / 2;//mid index
+        int b = a - 1;//mid-1 index
         int i = 0, j = 0;
         while (i < m && j < n)
         {

@@ -39,7 +39,7 @@ int longestIncreasingSubsequence(int arr[], int n)
     for (int i = 0; i <= n - 1; i++)
     {
         hash[i] = i; // initializing with current index
-        for (int prev_index = 0; prev_index <= i - 1; prev_index++)
+        for (int prev_index = 0; prev_index < i; prev_index++)
         {
             if (arr[prev_index] < arr[i] && 1 + dp[prev_index] > dp[i])
             {
