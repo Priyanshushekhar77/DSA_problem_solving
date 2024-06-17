@@ -53,8 +53,8 @@ bool subsetSumToK(int n, int k, vector<int> &arr)
 }
 int main()
 {
-    vector<int> arr = {1, 2, 3, 4};
-    int k = 4;
+    vector<int> arr = {5, 3, -1, 8, 12};
+    int k = 12;
     int n = arr.size();
 
     // Call the subsetSumToK function and print the result

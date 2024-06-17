@@ -32,7 +32,7 @@ int getLongestSubarray(vector<int> &arr, int k)
             maxLen = max(maxLen, len);
         }
         // Finally, update the map checking the conditions:
-        // it is for example if arr=[2,0,0,3] k=3; so maxlen=3 otherwise maxlen becomes 1
+        // it is for example if arr=[2,0,0,3] k=2; so maxlen=3 otherwise maxlen becomes 1
         if (prefixmp.find(sum) == prefixmp.end())
         {
             prefixmp[sum] = i;
