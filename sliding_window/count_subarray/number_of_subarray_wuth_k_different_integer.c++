@@ -57,7 +57,7 @@ public:
     }
     int subarraysWithKDistinct(vector<int> &nums, int k)
     {
-        // number of subarray having condn <=k;
+        // number of subarray having condn <=k;(atmost condition)
         return solve(nums, k) - solve(nums, k - 1);
     }
 };
