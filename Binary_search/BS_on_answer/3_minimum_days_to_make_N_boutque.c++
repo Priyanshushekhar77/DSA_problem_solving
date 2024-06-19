@@ -3,9 +3,9 @@
  * You are given an integer array bloomDay, an integer m and an integer k.
 
    You want to make m bouquets. To make a bouquet, you need to use k adjacent flowers from the garden.
-   
+
    The garden consists of n flowers, the ith flower will bloom in the bloomDay[i] and then can be used in exactly one bouquet.
-   
+
    Return the minimum number of days you need to wait to be able to make m bouquets from the garden. If it is impossible to make m bouquets return -1.
 
    Input: bloomDay = [1,10,3,10,2], m = 3, k = 2
@@ -22,54 +22,61 @@ We can make one bouquet of the first three flowers that bloomed. We cannot make 
 After day 12: [x, x, x, x, x, x, x]
 It is obvious that we can make two bouquets in different ways.
 
- 
+
  */
 
-//here also answer lies between the range [minele,maxele] so apply the binary search for optimal solution o(NlogN) otherwise apply for loop solution o(N{pow(2)})
+// here also answer lies between the range [minele,maxele] so apply the binary search for optimal solution o(NlogN) otherwise apply for loop solution o(N{pow(2)})
 
-bool possible(vector<int>& bloomDay,int day, int a, int b){//b=colln of flower, a=no of boutique
-int cnt=0;
-int nofb=0;
-for(int i=0;i< bloomDay.size();i++){
-    if( bloomDay[i]<=day){
-        cnt++;
-    }
-    else{
-        nofb+=cnt/b;
-        cnt=0;
-    }
-}
-// after loop ended
- nofb+=cnt/b;
- 
- if(nofb>=a) return true;
- else return false;
+int possible(vector<int> &bloomDay, int day, int a, int b)
+{ // b=colln of flower, a=no of boutique
+	int cnt = 0;
+	int nofb = 0;
+	for (int i = 0; i < bloomDay.size(); i++)
+	{
+		if (bloomDay[i] <= day)
+		{
+			cnt++;
+		}
+		else
+		{
+			nofb += cnt / b;
+			cnt = 0;
+		}
+	}
+	// after loop ended
+	nofb += cnt / b;
+	return nofb;
 }
 
-    int minDays(vector<int>& bloomDay, int m, int k) {
-    long long val=k * 1LL * m * 1LL;  //handle overflow
-	int n=bloomDay.size();
-	if(val>n) return -1;// if(no. of boutique * colln of flower) > size
-	int mini=INT_MAX, maxi=INT_MIN;
-    //determine range
-	for(int i=0;i<n;i++){
-		mini=min(mini,bloomDay[i]);
-		maxi=max(maxi,bloomDay[i]);
+int minDays(vector<int> &bloomDay, int m, int k)
+{									   // m=boutique,k=colln of flowers
+	long long val = k * 1LL * m * 1LL; // handle overflow
+	int n = bloomDay.size();
+	if (val > n)
+		return -1; // if(no. of boutique * colln of flower) > size
+	int mini = INT_MAX, maxi = INT_MIN;
+	// determine range
+	for (int i = 0; i < n; i++)
+	{
+		mini = min(mini, bloomDay[i]);
+		maxi = max(maxi, bloomDay[i]);
 	}
 
-	int low=mini;
-	int high=maxi;
-	int ans=0;
-	while(low<=high){
-		int mid=(low+high)/2;
-		if(possible(bloomDay,mid,m,k)==true){
-            ans=mid;
-			high=mid-1;
+	int low = mini;
+	int high = maxi;
+	int ans = 0;
+	while (low <= high)
+	{
+		int mid = (low + high) / 2;
+		if (possible(bloomDay, mid, m, k) >= m)
+		{
+			ans = mid;
+			high = mid - 1;
 		}
-		else{
-			low=mid+1;
+		else
+		{
+			low = mid + 1;
 		}
 	}
 	return ans;
-        
-    }
+}

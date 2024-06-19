@@ -17,7 +17,7 @@ public:
         {
             return dp[ind]; // Return the stored result
         }
-        for (int i = 1; i <= n - ind; i++)
+        for (int i = ind; i <n; i++)
         {
             string temp = s.substr(ind, i); // Get substring from ind of length i
             // index and length
