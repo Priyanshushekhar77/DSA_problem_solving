@@ -135,7 +135,7 @@ long getMaximumProfit(long *Arr, int n)
         }
     }
 
-    // The maximum profit is stored in dp[0][0] after all calculations
+    // The maximum profit is stored in dp[0][0] after all calculations becz all the buys start from 0 ;we can say than all the buys product has been sale it will start from new buy.
     return dp[0][0];
 }
 int main()
