@@ -44,9 +44,7 @@ vector<int> preorderTraversal(TreeNode *root)
 // Time Complexity: O(N) where N is the number of nodes in the binary tree. Every node of the binary tree is visited exactly once, and for each node, , the operations performed (pushing and popping from the stack, accessing node values, etc.) are constant time operations.
 // Space Complexity: O(N) where N is the number of nodes in the binary tree. This is because the stack can potentially hold all nodes in the tree when dealing with a skewed tree (all nodes have only one child), consuming space proportional to the number of nodes.
 
-
-
-/*POSTORDER ITERATIVE TRAVERSAL =>in stack we push in order NLR=> after pop from stack(NRL) and reversing we get  LEFT,RIGHT,NODE */
+/*POSTORDER ITERATIVE TRAVERSAL USING 1 STACK =>in stack we push in order NLR=> after pop from stack(NRL) and reversing we get  LEFT,RIGHT,NODE */
 
 vector<int> postOrder(Node *node)
 {
@@ -76,8 +74,6 @@ vector<int> postOrder(Node *node)
     reverse(ans.begin(), ans.end());
     return ans;
 }
-
-
 
 /* POSTODER TRAVERSAL OF BINARY TREE USING 2 STACK
 1. Step 1: Create two stacks: one for holding nodes and another for storing the final postorder traversal sequence. Initialise an array `postorder` to store the traversal sequence.
@@ -126,3 +122,31 @@ vector<int> postOrder(Node *root)
     return postorder;
 }
 // T.C=O(2N) AND S.C=O(2N)
+
+// INORDER ITERATIVE TRAVERSAL
+vector<int> inorderTraversal(TreeNode *root)
+{
+    vector<int> ans;
+    stack<TreeNode *> st;
+    TreeNode *curr = root;
+
+    while (curr != nullptr || !st.empty())
+    {
+        // Reach the left most TreeNode of the current TreeNode and push all the left node into stack
+        while (curr != nullptr)
+        {
+            st.push(current);
+            curr = curr->left;
+        }
+
+        // Current must be nullptr at this point so push as node
+        curr = st.top();
+        st.pop();
+        ans.push_back(curr->val);
+
+        // We have visited the node and its left subtree, now it's right subtree's turn
+        curr = curr->right;
+        // and push all the left part of this right portion into stack using while loop above;
+    }
+    return result;
+}

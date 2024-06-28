@@ -1,0 +1,49 @@
+/* Q1. MAXIMUM PATH SUM(STRIVER)
+
+*/
+
+
+/* Q2. CHILD SUM PROPERTY(STRIVER)
+
+*/
+
+
+
+
+/* Q3. PATH FROM ROOT WITH A SPECIFIED SUM IS PRESENT OR NOT
+
+*/
+
+
+
+/* Q4. SUM ROOT TO LEAF NODE 
+*/
+
+
+
+
+/* Q5. SUM OF LEFT LEAVES
+
+*/
+
+
+
+
+
+/* Q6. PATH SUM-1 
+
+*/
+
+
+
+
+/* Q7. PATH SUM-2
+
+*/
+
+
+
+ 
+/* Q8. MAX LEVEL SUM OF BINARY TREE
+
+*/
