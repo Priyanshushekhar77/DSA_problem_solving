@@ -15,7 +15,7 @@ Node *getlca(Node *root, int x, int y)
         getlca(root->right, x, y); // case 2
     else
     {
-        // root->data>x && root->data<y or root->data<x && root->data>y
+        // root->data>x && root->data<y or root->data<x && root->data>y  //spliting section happens
         return root;
     }
 }
