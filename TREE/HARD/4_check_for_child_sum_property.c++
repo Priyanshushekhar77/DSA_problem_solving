@@ -68,7 +68,7 @@ int isSumProperty(Node *root)
 
 int isSumProperty(Node *root)
 {
-    if (root == NULL)
+    if (root == NULL) // ultimate base case
         return 1;
     if (root->left == NULL && root->right == NULL)
         return 1;
