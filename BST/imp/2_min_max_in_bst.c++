@@ -24,4 +24,5 @@ int minValue(Node *root)
     }
     return temp->data;
 }
-}
+
+// since maximum value lies on the rightmost bottom right side so get it

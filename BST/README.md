@@ -1,6 +1,6 @@
 # BST ->
 
-## 1. Inorder of BST is always in sorted order so maximum questions will be solve by it.
+## 1. Inorder of BST is always in sorted order so maximum questions will be solve by it.(e.g- 2 sum in bst)
 
 ## 2.For every given node in a Binary Search Tree if a left or a right child exists then:(Left Child < Node < Right Child)
 
