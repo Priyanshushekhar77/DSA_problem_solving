@@ -10,65 +10,33 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// Tabulation
-long long solve(vector<int> &arr1, int n)
-{
-    vector<int> dp(n + 1, 0);
-    dp[0] = arr1[0];
-    for (int i = 1; i < n; i++)
-    {
-        int pick = arr1[i];
-        if (i > 1)
-        {
-            pick += dp[i - 2];
-        }
-        int notpick = dp[i - 1];
-        dp[i] = max(pick, notpick);
+// memoziation
+ int solve(vector<int>& nums,int ind,vector<int>& dp){
+    if(ind==0) return nums[0];
+    if(ind<0) return 0;
+    if(dp[ind]!=-1) return dp[ind];
+    int take=nums[ind];
+    if(ind>1){
+        take+=solve(nums,ind-2,dp);
     }
-    return dp[n - 1];
+    int nottake=0+solve(nums,ind-1,dp);
+    return dp[ind]=max(take,nottake);
 }
 
-long long solve(vector<int> &arr2, int n)
-{
-    vector<int> dp(n + 1, 0);
-    dp[0] = arr2[0];
-    for (int i = 1; i < n; i++)
-    {
-        int pick = arr2[i];
-        if (i > 1)
-        {
-            pick += dp[i - 2];
-        }
-        int notpick = dp[i - 1];
-        dp[i] = max(pick, notpick);
-    }
-    return dp[n - 1];
-}
-long long int robStreet(int n, vector<int> &arr)
-{
-    vector<int> arr1;
-    vector<int> arr2;
 
-    if (n == 1)
-        return arr[0];
+    int rob(vector<int>& arr) {
+       int n = arr.size();
+    if (n == 0) return 0;
+    if (n == 1) return arr[0];
 
-    for (int i = 0; i < n; i++)
-    {
+    vector<int> dp1(n, -1); // dp array for arr1
+    vector<int> dp2(n, -1); // dp array for arr2
 
-        if (i != 0)
-            arr1.push_back(arr[i]);
-        if (i != n - 1)
-            arr2.push_back(arr[i]);
-    }
-    long long int ans1 = solve(arr1, n);
-    long long int ans2 = solve(arr2, n);
+    vector<int> arr1(arr.begin(), arr.end() - 1); // arr1 excludes the last element
+    vector<int> arr2(arr.begin() + 1, arr.end()); // arr2 excludes the first element
+
+    int ans1 = solve(arr1, arr1.size() - 1, dp1); // solve for arr1
+    int ans2 = solve(arr2, arr2.size() - 1, dp2); // solve for arr2
 
     return max(ans1, ans2);
-}
-int main()
-{
-
-    vector<int> arr{1, 5, 1, 2, 6};
-    int n = arr.size();
-    cout << robStreet(n, arr);
-}
+    }
