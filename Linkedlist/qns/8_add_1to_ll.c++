@@ -44,10 +44,10 @@ Node *addOne(Node *head)
         {
             temp->data = 0;
             carry = 1;
-            if (temp->next == nullptr)
-            {
-                temp->next = new Node(0);
-            }
+            // if (temp->next == nullptr)
+            // {
+            //     temp->next = new Node(0);
+            // }
         }
         temp = temp->next;
     }

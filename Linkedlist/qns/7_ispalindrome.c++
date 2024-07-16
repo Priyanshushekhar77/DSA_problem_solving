@@ -46,7 +46,7 @@ bool isPalindrome(ListNode *head)
     {
         if (fsthalf->val != sechalf->val)
         {
-            reversell(sechalf);
+            reversell(sechalf);//undo the reverse to make unchange
             return false;
         }
         fsthalf = fsthalf->next;

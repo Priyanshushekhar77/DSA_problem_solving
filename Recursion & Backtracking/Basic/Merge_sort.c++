@@ -5,14 +5,15 @@
 //  3 9 10 27 38 43 82
 #include <bits/stdc++.h>
 using namespace std;
-void merge(int arr[], int l, int m, int r)
+void merge(int arr[], int l, int mid, int r)
 {
     // Your code here
-    int n1 = m - l + 1;
-    int n2 = r - m;
+    int n1 = mid - l + 1;
+    int n2 = r - mid;
     int arr1[n1];
     int arr2[n2];
     int k = l;
+    //2 diff components of aaray
     for (int i = 0; i < n1; i++)
     {
         arr1[i] = arr[k];
