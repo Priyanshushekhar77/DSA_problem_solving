@@ -20,7 +20,7 @@ struct Job
 };
 static bool comp(Job a, Job b)
 {
-    return a.profit > b.profit; // jada profit wala uppar rahna chahiye
+    return a.profit > b.profit; // jada profit wala uppar rahna chahiye(descending order)
 }
 vector<int> JobScheduling(Job arr[], int n)
 {

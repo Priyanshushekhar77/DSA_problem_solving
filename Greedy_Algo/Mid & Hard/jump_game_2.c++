@@ -7,33 +7,30 @@
 #include <bits/stdc++.h>
 using namespace std;
 // using dp approach
-int minJumps(vector<int> &nums, int ind, vector<int> &dp)
+int solve(vector<int> &nums, vector<int> &dp, int ind)
 {
-    int n = nums.size();
-    if (ind >= n - 1)
-        return 0; // If already at or beyond the last index
+    if (ind >= nums.size() - 1)
+        return 0;
     if (dp[ind] != -1)
-        return dp[ind]; // Return if already calculated
-    int maxjump = min(ind + nums[ind], n - 1);
-    int minSteps = INT_MAX;
-    // Range of jumps
+        return dp[ind];
+    int maxjump = min(ind + nums[ind], (int)nums.size() - 1);
+    int steps = INT_MAX - 1;
     for (int i = ind + 1; i <= maxjump; i++)
     {
-        int jumps = minJumps(nums, i, dp); // cal form rec
-        if (jumps != INT_MAX)
+        int jump = 1 + solve(nums, dp, i);
+        if (jump < steps)
         {
-            minSteps = min(minSteps, jumps + 1); // ninstep is minimum jump from all range of jumps
+            steps = min(steps, jump);
         }
     }
-    // putting in the dp
-    dp[ind] = minSteps;
-    return dp[ind];
+    return dp[ind] = steps;
 }
 
 int jump(vector<int> &nums)
 {
-    vector<int> dp(nums.size(), -1);
-    return minJumps(nums, 0, dp);
+    int n = nums.size();
+    vector<int> dp(n, -1);
+    return solve(nums, dp, 0); // Fixed the arguments order
 }
 
 int main()
@@ -66,14 +63,10 @@ public:
             for (int i = l; i <= r; i++)
             {
                 maxjump = max(maxjump, i + nums[i]);
-                if (maxjump >= n - 1)
-                { // If we can reach or exceed the last index
-                    return step + 1;
-                }
             }
             // Move to the next range
             step++;
-            l = r + 1;
+            l = r;
             r = maxjump;
         }
 
