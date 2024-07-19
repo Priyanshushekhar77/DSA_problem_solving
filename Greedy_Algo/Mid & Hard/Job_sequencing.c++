@@ -43,7 +43,7 @@ vector<int> JobScheduling(Job arr[], int n)
     {
         for (int j = arr[i].dead; j > 0; j--)
         {
-            if (time[j] != -1)
+            if (time[j] == -1)
             {
                 cnt++; // storing maxjob dones
                 profit += arr[i].profit;
