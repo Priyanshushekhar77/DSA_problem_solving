@@ -17,6 +17,7 @@ ListNode *detectCycle(ListNode *head)
         {
             // find starting pt of loop
             slow = head;
+            // agin collision pt gives the intersection of loop
             while (slow != fast)
             {
                 slow = slow->next;
@@ -27,3 +28,5 @@ ListNode *detectCycle(ListNode *head)
     }
     return NULL;
 }
+//proof->1.how are u so sure that they will be collide => refer copy
+//2.how are u so sure that collide pt giuve sthe starting point of loop =>refer copy
