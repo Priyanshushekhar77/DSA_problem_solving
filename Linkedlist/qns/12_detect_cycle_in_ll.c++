@@ -30,3 +30,6 @@ bool hasCycle(ListNode *head)
     }
     return false;
 }
+prrof->let initial distance between fast and slow pointer is d, in each step fast moves 2 step 
+ans slow moves 1 step so in each iteration distance bw them reduced by 1 , at a time d-1,d-2...d-d=0
+    which is at meeting point also d%1=0 ensures the meeting point.
