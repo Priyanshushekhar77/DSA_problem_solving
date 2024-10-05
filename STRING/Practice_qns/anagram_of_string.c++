@@ -64,3 +64,39 @@ public:
         return false;
     }
 };
+
+
+bool checkInclusion(string s1, string s2) {
+        // Sliding window method
+        unordered_map<char, int> s1map;
+        int k = s1.size();//pattern
+        int n = s2.size();//text
+        // Frequency map for s1(sample)
+        for (char c : s1) {
+            s1map[c]++;
+        }
+        int i = 0, j = 0;
+        int cnt=s1map.size();
+        // Initialize the window with the first 'k' characters of s2
+        while (j < n) {
+            s1map[s2[j]]--;
+            if(s1map[s2[j]]==0) cnt--;
+           
+            // If window size is equal to 'k', check for the permutation
+            else if (j - i + 1 == k) {
+                if (cnt==0) return true;
+                //add the prev portion in the window
+                s1map[s2[i]]++; // Slide the window
+
+                if (s1map[s2[i]] == 1) {
+                    cnt++;
+                }
+                i++;
+                
+            }
+            j++;
+        }
+
+        return false;
+    }
+};
